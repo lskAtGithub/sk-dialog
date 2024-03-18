@@ -3,7 +3,7 @@ import { withDefaults } from 'vue'
 import './dialog.css'
 import close from './close.png'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modelValue: boolean
     title?: string
@@ -12,12 +12,16 @@ withDefaults(
     confirmBtnText?: string
     isShowConfirmBtn?: boolean
     isShowCloseBtn?: boolean
+    closeFn?: Function
+    confirmFn?: Function
+    isDeclarative?: boolean
   }>(),
   {
     closeBtnText: '取 消',
     confirmBtnText: '确 认',
     isShowConfirmBtn: true,
-    isShowCloseBtn: true
+    isShowCloseBtn: true,
+    isDeclarative: false
   }
 )
 
@@ -26,11 +30,34 @@ const emit = defineEmits<{
   (e: 'confirm', onClose: Function): void
 }>()
 
+function isRunCloseFn() {
+  if (props.isDeclarative) {
+    if (props.closeFn && typeof props.closeFn === 'function') {
+      props.closeFn()
+      return false
+    }
+  }
+  return true
+}
+function isRunConfirmFn() {
+  if (props.isDeclarative) {
+    if (props.confirmFn && typeof props.confirmFn === 'function') {
+      props.confirmFn(props.closeFn!)
+      return false
+    }
+  }
+  return true
+}
+
 function onConfirm() {
-  emit('confirm', onClose)
+  if (isRunConfirmFn()) {
+    emit('confirm', onClose)
+  }
 }
 function onClose() {
-  emit('update:modelValue', false)
+  if (!isRunCloseFn()) {
+    emit('update:modelValue', false)
+  }
 }
 </script>
 
