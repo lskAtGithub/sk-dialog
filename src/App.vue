@@ -5,6 +5,9 @@ import { SkMessageBox, useMessageBox } from './MessageBox/index'
 let visible = ref(false)
 
 function onOpen() {
+  visible.value = true
+}
+function onOpen1() {
   useMessageBox
     .confirm({
       title: '提示',
@@ -16,7 +19,6 @@ function onOpen() {
     .catch(() => {
       console.log('catch')
     })
-  // visible.value = true
 }
 function onConfirm(close: Function) {
   close()
@@ -24,15 +26,15 @@ function onConfirm(close: Function) {
 </script>
 
 <template>
-  <button @click="onOpen">click me</button>
+  <button @click="onOpen">组件式调用</button>
+  <button @click="onOpen1">指令式调用</button>
   <sk-message-box
-    title="title"
-    content="this is content"
+    title="组件式调用标题"
     closeBtnText="close"
     v-model="visible"
     @confirm="onConfirm"
   >
-    <template v-slot:content> parent content </template>
+    <template v-slot:content> 组件式调用内容 </template>
   </sk-message-box>
 </template>
 ./MessageBox/index

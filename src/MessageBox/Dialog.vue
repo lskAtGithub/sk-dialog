@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { withDefaults } from 'vue'
-import './dialog.css'
 import close from './close.png'
 
 const props = withDefaults(
@@ -12,6 +11,10 @@ const props = withDefaults(
     confirmBtnText?: string
     isShowConfirmBtn?: boolean
     isShowCloseBtn?: boolean
+    closeOnOther?: boolean
+    /***
+     * 以下为非组件的Props， 仅提供给指令式
+     */
     closeFn?: Function
     confirmFn?: Function
     isDeclarative?: boolean
@@ -21,7 +24,8 @@ const props = withDefaults(
     confirmBtnText: '确 认',
     isShowConfirmBtn: true,
     isShowCloseBtn: true,
-    isDeclarative: false
+    isDeclarative: false,
+    closeOnOther: true
   }
 )
 
@@ -55,18 +59,24 @@ function onConfirm() {
   }
 }
 function onClose() {
-  if (!isRunCloseFn()) {
+  if (isRunCloseFn()) {
     emit('update:modelValue', false)
+  }
+}
+function onCloseOnOther() {
+  if (props.closeOnOther) {
+    onClose()
   }
 }
 </script>
 
 <template>
-  <div class="--sk-wrapper" v-if="modelValue" @click.self="onClose">
+  <div class="--sk-wrapper" v-if="modelValue" @click.self="onCloseOnOther">
     <div class="--sk-wrapper_body">
       <div class="--sk-wrapper_title">
         <span>{{ title }}</span>
         <img
+          v-if="closeOnOther"
           @click="onClose"
           class="--sk-wrapper_title_close_icon"
           :src="close"
@@ -101,3 +111,7 @@ function onClose() {
     </div>
   </div>
 </template>
+
+<style scoped>
+@import './dialog.css';
+</style>
