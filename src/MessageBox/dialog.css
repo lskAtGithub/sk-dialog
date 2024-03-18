@@ -18,6 +18,7 @@
   width: 50vw;
   max-width: 650px;
   background: #fff;
+  color: #212121;
   border-radius: 5px;
   box-shadow: 0 0 5px 0 #806b6b;
 }
@@ -41,6 +42,8 @@
 /* 弹窗内容 */
 .--sk-wrapper .--sk-wrapper_body .--sk-wrapper_content {
   padding: 12px 20px;
+  font-size: 16px;
+  color: #212121;
 }
 
 /* 弹窗页脚 */
@@ -65,7 +68,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 8px 15px;
   font-size: 14px;
 }
 

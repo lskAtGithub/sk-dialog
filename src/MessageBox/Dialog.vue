@@ -91,20 +91,20 @@ function onCloseOnOther() {
       <div class="--sk-wrapper_footer">
         <slot name="footer">
           <div class="--sk-wrapper_footer_button_box">
-            <button
+            <div
               v-if="isShowConfirmBtn"
               class="--sk-wrapper_footer_button __primary"
               @click="onConfirm"
             >
               {{ confirmBtnText }}
-            </button>
-            <button
+            </div>
+            <div
               v-if="isShowCloseBtn"
               class="--sk-wrapper_footer_button"
               @click="onClose"
             >
               {{ closeBtnText }}
-            </button>
+            </div>
           </div>
         </slot>
       </div>
