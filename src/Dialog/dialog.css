@@ -1,0 +1,79 @@
+/* 包裹容器 */
+.--sk-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9999999999999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 弹窗主体 */
+.--sk-wrapper .--sk-wrapper_body {
+  position: absolute;
+  left: calc(50% - min(25vw, 325px));
+  top: calc(50% - min(25vh));
+  width: 50vw;
+  max-width: 650px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 #806b6b;
+}
+
+/* 弹窗头部 */
+.--sk-wrapper .--sk-wrapper_body .--sk-wrapper_title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.--sk-wrapper .--sk-wrapper_body .--sk-wrapper_title_close_icon {
+  width: 18px;
+  height: 18px;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* 弹窗内容 */
+.--sk-wrapper .--sk-wrapper_body .--sk-wrapper_content {
+  padding: 12px 20px;
+}
+
+/* 弹窗页脚 */
+.--sk-wrapper .--sk-wrapper_body .--sk-wrapper_footer {
+  padding: 12px 18px 20px;
+}
+.--sk-wrapper
+  .--sk-wrapper_body
+  .--sk-wrapper_footer
+  .--sk-wrapper_footer_button_box {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+.--sk-wrapper
+  .--sk-wrapper_body
+  .--sk-wrapper_footer
+  .--sk-wrapper_footer_button_box
+  .--sk-wrapper_footer_button {
+  color: #212121;
+  background-color: #ece9e9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.--sk-wrapper
+  .--sk-wrapper_body
+  .--sk-wrapper_footer
+  .--sk-wrapper_footer_button_box
+  .--sk-wrapper_footer_button.__primary {
+  color: #fff;
+  background-color: #228614;
+}
