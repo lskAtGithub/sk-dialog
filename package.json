@@ -1,7 +1,7 @@
 {
   "name": "sk-message-box",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "files": [
     "dist",
@@ -9,6 +9,13 @@
   ],
   "main": "dist/sk-message-box.cjs.js",
   "module": "dist/sk-message-box.es.js",
+  "keywords": [
+    "vue",
+    "vue3",
+    "message",
+    "message-box",
+    "dialog"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
