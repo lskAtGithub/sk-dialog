@@ -13,18 +13,19 @@ function MessageBox() {
     alert(props: MessageBox) {
       return new Promise((resolve) => {
         const container = document.createElement('div')
-        const messagenBox = createApp(Dialog, {
+        const messageBox = createApp(Dialog, {
           ...props,
           modelValue: true,
+          confirmFn: onClose,
           closeFn: onClose,
           isDeclarative: true,
           isShowCloseBtn: false
         })
-        messagenBox.mount(container)
+        messageBox.mount(container)
         document.body.appendChild(container)
         function onClose() {
           resolve(undefined)
-          messagenBox.unmount()
+          messageBox.unmount()
           document.body.removeChild(container)
         }
       })
@@ -32,23 +33,23 @@ function MessageBox() {
     confirm(props: MessageBox) {
       return new Promise((resolve, reject) => {
         const container = document.createElement('div')
-        const messagenBox = createApp(Dialog, {
+        const messageBox = createApp(Dialog, {
           ...props,
           modelValue: true,
           closeFn: onClose,
           confirmFn: onConfirm,
           isDeclarative: true
         })
-        messagenBox.mount(container)
+        messageBox.mount(container)
         document.body.appendChild(container)
         function onClose() {
           reject(undefined)
-          messagenBox.unmount()
+          messageBox.unmount()
           document.body.removeChild(container)
         }
         function onConfirm() {
           resolve(undefined)
-          messagenBox.unmount()
+          messageBox.unmount()
           document.body.removeChild(container)
         }
       })
