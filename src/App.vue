@@ -9,7 +9,7 @@ function onOpen() {
 }
 function onOpen1() {
   useMessageBox
-    .confirm({
+    .alert({
       title: '提示',
       content: '内容'
     })
