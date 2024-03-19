@@ -3,6 +3,7 @@
   "private": false,
   "version": "1.0.4",
   "type": "module",
+  "types": "sk-message-box.d.ts",
   "files": [
     "dist",
     "README.md"
@@ -18,7 +19,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build && vue-tsc",
     "preview": "vite preview"
   },
   "dependencies": {

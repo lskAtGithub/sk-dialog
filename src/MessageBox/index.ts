@@ -79,7 +79,7 @@ const SkMessageBox = defineComponent({
       Dialog,
       {
         ...this.$props,
-        'onUpdate:modelValue': (value) => this.$emit('update:modelValue', value)
+        'onUpdate:modelValue': (value: boolean) => this.$emit('update:modelValue', value)
       },
       this.$slots
     )
