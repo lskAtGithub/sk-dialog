@@ -32,6 +32,7 @@ const props = withDefaults(
 const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void
   (e: 'confirm', onClose: Function): void
+  (e: 'close'): void
 }>()
 
 function isRunCloseFn() {
@@ -61,6 +62,7 @@ function onConfirm() {
 function onClose() {
   if (isRunCloseFn()) {
     emit('update:modelValue', false)
+    emit('close')
   }
 }
 function onCloseOnOther() {
