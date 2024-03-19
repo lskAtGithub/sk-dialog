@@ -23,6 +23,9 @@ function onOpen1() {
 function onConfirm(close: Function) {
   close()
 }
+function onClose() {
+  console.log('close')
+}
 </script>
 
 <template>
@@ -33,6 +36,7 @@ function onConfirm(close: Function) {
     closeBtnText="close"
     v-model="visible"
     @confirm="onConfirm"
+    @close="onClose"
   >
     <template v-slot:content> 组件式调用内容 </template>
   </sk-message-box>
