@@ -5,6 +5,8 @@ import { SkMessageBox, useMessageBox } from './MessageBox/index'
 let visible = ref(false)
 
 function onOpen() {
+  console.log(dialogRef)
+
   visible.value = true
 }
 function onOpen1() {
@@ -26,12 +28,15 @@ function onConfirm(close: Function) {
 function onClose() {
   console.log('close')
 }
+
+let dialogRef = ref(null)
 </script>
 
 <template>
   <button @click="onOpen">组件式调用</button>
   <button @click="onOpen1">指令式调用</button>
   <sk-message-box
+    ret="dialogRef"
     title="组件式调用标题"
     closeBtnText="close"
     v-model="visible"
