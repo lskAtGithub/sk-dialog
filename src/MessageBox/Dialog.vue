@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { withDefaults } from 'vue'
+// @ts-ignore-next-line
 import close from './close.png'
 
 const props = withDefaults(
