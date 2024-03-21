@@ -70,6 +70,7 @@ function onCloseOnOther() {
     onClose()
   }
 }
+defineExpose()
 </script>
 
 <template>
